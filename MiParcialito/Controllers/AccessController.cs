@@ -26,7 +26,7 @@ namespace MiParcialito.Controllers
         {
             var user = dboContext.Usuarios.FirstOrDefault(u => u.UserEmail == usuario.UserEmail);
 
-            if (user != null && user.UserPassword == usuario.UserPassword)
+            if (user != null && (user.UserPassword == usuario.UserPassword || BCrypt.Net.BCrypt.Verify(usuario.UserPassword, user.UserPassword)))
             {
                 if (user.RoleId == 1)
                 {

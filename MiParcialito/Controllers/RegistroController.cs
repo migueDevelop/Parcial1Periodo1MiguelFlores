@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BCrypt.Net;
+using Microsoft.AspNetCore.Mvc;
 using MiParcialito.Models;
 
 namespace MiParcialito.Controllers
@@ -35,7 +36,7 @@ namespace MiParcialito.Controllers
             {
                 UserName = userName,
                 UserEmail = userEmail,
-                UserPassword = userPassword,
+                UserPassword = BCrypt.Net.BCrypt.HashPassword(userPassword),
                 UserBirthDate = userBirthDate,
                 RoleId = role
             };

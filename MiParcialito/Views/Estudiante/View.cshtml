@@ -1,0 +1,47 @@
+﻿@model MiParcialito.Models.ViewModels.InscripcionesViewModel
+@{
+}
+<h1>Materias inscritas</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Materia</th>
+            <th>Docente</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var inscripcion in Model.Inscripciones)
+        {
+            <tr>
+                <td>@inscripcion.Materia.MateriaName</td>
+                <td>@inscripcion.Materia.Docente.DocenteName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+</br>
+<h1>Materias no inscritas</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Materia</th>
+            <th>Docente</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var inscripcion in Model.NoInscripciones)
+        {
+            <tr>
+                <td>@inscripcion.Materia.MateriaName</td>
+                <td>@inscripcion.Materia.Docente.DocenteName</td>
+                <td>
+                    <form method="post" asp-action="InscribirMateria">
+                        <input type="hidden" name="idMateria" value="@inscripcion.Materia.MateriaId" />
+                        <button type="submit" class="btn btn-primary">Inscribir</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

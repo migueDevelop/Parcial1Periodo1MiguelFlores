@@ -1,0 +1,39 @@
+﻿@model MiParcialito.Models.Usuario
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Registro de Usuario</h1>
+
+<form asp-controller="Registro" asp-action="Registrar" method="post">
+    <div class="form-group">
+        <label for="userName">Nombre de Usuario:</label>
+        <input type="text" id="userName" name="userName" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="userEmail">Correo Electrónico:</label>
+        <input type="email" id="userEmail" name="userEmail" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="userPassword">Contraseña:</label>
+        <input type="password" id="userPassword" name="userPassword" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="confirmPassword">Confirmar Contraseña:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="userBirthDate">Fecha de Nacimiento:</label>
+        <input type="date" id="userBirthDate" name="userBirthDate" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="role">Rol:</label>
+        <select id="role" name="role" class="form-control" required>
+            <option value="1">Publico</option>
+            <option value="2">Estudiante</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+</form>
+

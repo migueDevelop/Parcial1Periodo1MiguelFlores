@@ -1,0 +1,22 @@
+﻿@model List<MiParcialito.Models.Materia>
+@{
+}
+
+<h1>Materias con profesores asignados</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Materia</th>
+            <th>Docente asignado</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var materia in Model)
+        {
+            <tr>
+                <td>@materia.MateriaName</td>
+                <td>@(materia.Docente != null ? materia.Docente.DocenteName : "Sin docente asignado")</td>
+            </tr>
+        }
+    </tbody>
+</table>
